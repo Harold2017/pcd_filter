@@ -15,4 +15,7 @@ endif()
 add_subdirectory(src/x3 EXCLUDE_FROM_ALL)
 
 add_executable(pcd_filter pcd_filter.cpp)
+add_executable(mesh_filter mesh_filter.cpp)
+
 target_link_libraries(pcd_filter matheval::x3 ${Open3D_LIBRARIES})
+target_link_libraries(mesh_filter matheval::x3 ${Open3D_LIBRARIES})
