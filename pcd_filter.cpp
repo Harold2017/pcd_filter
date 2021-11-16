@@ -75,8 +75,11 @@ int main(int argc, char* argv[]) {
         }
 */
 
+// MSVC only support omp 2.0 where only signed int is supported in loop, so disable omp in MSVC if the size is out of int range
+#ifndef _WIN32
 #pragma omp parallel for
-        for (auto i = 0; i < pts.size(); i++) {
+#endif
+        for (size_t i = 0; i < pts.size(); i++) {
             std::map<std::string, double> symtab = {
                 { "x", pts[i].x() },
                 { "y", pts[i].y() },
